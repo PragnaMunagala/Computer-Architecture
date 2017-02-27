@@ -1,0 +1,93 @@
+###############################
+Description
+###############################
+
+#In this program, memory is accessed by reading and writing the data in different patterns(linear and random) and
+ the average access time of L1, L2, L3 cache and main memory is measured using SimpleScalar simulator.
+
+#The access time, hit rates is measured by using an element of cache line size of 64bytes. The array size of the elements is
+ varied and the average access time is calculated for both read and write in linear and random patters. The results
+ are tabulated and plotted and are mentioned in the Report.
+
+#For sequential pattern, a structure with data array of 64bytes is created and is used to perform read and write operations.
+
+#For random pattern, a structure of cache line size of 64bytes is created having pointer to other element of same type, data array,
+ flags as the attributes.
+
+#For random accessing the memory, pointer chasing technique is implemented.
+
+#Accessing memory for read and write operation on array of different sizes is done for multiple iterations(1000 in my program) to
+measure in high precision.
+
+#In reading operation in both sequential and random pattern, only first data element of each block of each array is only read as
+ reading the entire block will not have much impact on the average time due to the concept of spatial locality.
+
+#The bash script files are written to easily run each of the files seqread.c, seqwrite.c, ranread.c, ranwrite.c on the simulator to measure the 
+ clock cycles, hit rates of read/write in sequential/random patterns.
+
+#The output of the program prints the write and read average access time in nanoseconds, hit rate of various caches for both sequential
+ and random patterns.
+
+
+
+
+
+###############################
+Steps to execute
+###############################
+
+#Open the terminal and run the following command
+	sudo -s
+
+#Enter the root password
+
+#Create cse420 folder in the Home directoy and setup the simplescalar simlulator as mentioned in the simplescalar_instruction.pdf
+
+#Extract the Task2 files (seqread.c, seqwrite.c, ranread.c, ranwrite.c, run.sh, out.sh) into cse420 folder
+
+#In the terminal traverse to the cse420 directory having the files downloaded and run the following command to run the code on simulator
+	make
+	bash run.sh
+
+#Run the following command to display the average access time, hit rate of different level caches of various array sizes in read and write operations
+	bash out.sh
+
+
+
+
+
+###############################
+NOTE
+###############################
+
+
+Host machine has the following configuration.
+
+OS - Linux
+Distro - Ubuntu 15.10
+Linux kernel version - 4.2.0-42-generic
+gcc version 5.2.1 20151010 (Ubuntu 5.2.1-22ubuntu2)
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                4
+On-line CPU(s) list:   0-3
+Thread(s) per core:    2
+Core(s) per socket:    2
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 61
+Model name:            Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz
+Stepping:              4
+CPU MHz:               2577.179
+CPU max MHz:           2700.0000
+CPU min MHz:           500.0000
+BogoMIPS:              4390.02
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              3072K
+NUMA node0 CPU(s):     0-3
